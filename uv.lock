@@ -426,36 +426,6 @@ wheels = [
 ]
 
 [[package]]
-name = "private-package-template"
-version = "0.1.10"
-source = { editable = "." }
-
-[package.optional-dependencies]
-dev = [
-    { name = "build" },
-    { name = "bump2version" },
-    { name = "pytest" },
-    { name = "pytest-xdist" },
-    { name = "ruff" },
-    { name = "setuptools" },
-    { name = "twine" },
-    { name = "wheel" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "build", marker = "extra == 'dev'" },
-    { name = "bump2version", marker = "extra == 'dev'", specifier = ">=1.0.1" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.4.0" },
-    { name = "pytest-xdist", marker = "extra == 'dev'", specifier = ">=3.3.1" },
-    { name = "ruff", marker = "extra == 'dev'" },
-    { name = "setuptools", marker = "extra == 'dev'", specifier = ">=67.8.0" },
-    { name = "twine", marker = "extra == 'dev'" },
-    { name = "wheel", marker = "extra == 'dev'" },
-]
-provides-extras = ["dev"]
-
-[[package]]
 name = "pycparser"
 version = "2.22"
 source = { registry = "https://pypi.org/simple" }
@@ -718,6 +688,36 @@ sdist = { url = "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0b/2c/87f3254fd8ffd29e4c02732eee68a83a1d3c346ae39bc6822dcbcb697f2b/wheel-0.45.1-py3-none-any.whl", hash = "sha256:708e7481cc80179af0e556bbf0cc00b8444c7321e2700b8d8580231d13017248", size = 72494 },
 ]
+
+[[package]]
+name = "yid-emailer"
+version = "0.1.13"
+source = { editable = "." }
+
+[package.optional-dependencies]
+dev = [
+    { name = "build" },
+    { name = "bump2version" },
+    { name = "pytest" },
+    { name = "pytest-xdist" },
+    { name = "ruff" },
+    { name = "setuptools" },
+    { name = "twine" },
+    { name = "wheel" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "build", marker = "extra == 'dev'" },
+    { name = "bump2version", marker = "extra == 'dev'", specifier = ">=1.0.1" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.4.0" },
+    { name = "pytest-xdist", marker = "extra == 'dev'", specifier = ">=3.3.1" },
+    { name = "ruff", marker = "extra == 'dev'" },
+    { name = "setuptools", marker = "extra == 'dev'", specifier = ">=67.8.0" },
+    { name = "twine", marker = "extra == 'dev'" },
+    { name = "wheel", marker = "extra == 'dev'" },
+]
+provides-extras = ["dev"]
 
 [[package]]
 name = "zipp"

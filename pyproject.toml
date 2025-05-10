@@ -3,7 +3,7 @@ requires = ["setuptools>=67.8.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "yid_public_package_template"
+name = "yid_emailer"
 version = "0.1.13"
 description = "A template for a private Python package"
 authors = [
@@ -34,8 +34,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dimitree54/public_package_template"
-Repository = "https://github.com/dimitree54/public_package_template"
+Homepage = "https://github.com/dimitree54/yid_emailer"
+Repository = "https://github.com/dimitree54/yid_emailer"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
