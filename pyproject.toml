@@ -17,8 +17,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    # Add your package dependencies here
-    # e.g., "requests>=2.20"
+    "sib_api_v3_sdk==7.6.0"
 ]
 
 [project.optional-dependencies]
