@@ -9,7 +9,7 @@ class EmailProvider(ABC):
         self.sender_name = sender_name
 
     @abstractmethod
-    def send(self, to_email: str, subject: str, html_content: str,
+    async def send(self, to_email: str, subject: str, html_content: str,
             metadata: Optional[Dict[str, Any]] = None) -> bool:
         """
         Send an email using this provider.

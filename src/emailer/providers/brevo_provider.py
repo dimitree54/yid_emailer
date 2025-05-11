@@ -26,7 +26,7 @@ class BrevoEmailProvider(EmailProvider):
         if self.api_key:
             self.configuration.api_key['api-key'] = self.api_key
 
-    def send(self, to_email: str, subject: str, html_content: str, 
+    async def send(self, to_email: str, subject: str, html_content: str,
             metadata: Optional[Dict[str, Any]] = None) -> bool:
         try:
             # Initialize API client
@@ -45,11 +45,31 @@ class BrevoEmailProvider(EmailProvider):
                 sender=sender,
                 subject=subject
             )
-
+            
+            # Add metadata if provided
+            if metadata:
+                send_smtp_email.params = metadata
+            
             # Send the email
-            api_instance.send_transac_email(send_smtp_email)
-            return True
+            response = api_instance.send_transac_email(send_smtp_email)
+            
+            # The response contains a messageId if successful
+            # Return True only if we get a valid message ID
+            if hasattr(response, 'message_id') and response.message_id:
+                return True
+            else:
+                raise SendFailedError(
+                    f"Failed to send email '{subject}' to {to_email}: No message ID returned"
+                )
+            
         except ApiException as e:
-            raise SendFailedError(
-                f"Brevo API exception when trying to send '{subject}' to {to_email}: {e}"
-            )
+            error_message = str(e)
+            # Check for specific API error codes that indicate invalid email addresses
+            if "Invalid email address" in error_message or "Invalid sender" in error_message:
+                raise SendFailedError(
+                    f"Invalid email address when trying to send '{subject}' to {to_email}: {e}"
+                )
+            else:
+                raise SendFailedError(
+                    f"Brevo API exception when trying to send '{subject}' to {to_email}: {e}"
+                )
