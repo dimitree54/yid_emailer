@@ -7,8 +7,7 @@ This module implements the Brevo email provider.
 import asyncio
 import functools
 import json
-import time
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
