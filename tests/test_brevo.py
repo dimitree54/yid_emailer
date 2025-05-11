@@ -1,7 +1,5 @@
 import os
 import unittest
-import sib_api_v3_sdk
-from sib_api_v3_sdk.rest import ApiException
 
 from emailer.providers.brevo_provider import BrevoEmailProvider
 from path2dream.templates.error_report_template import ErrorReportTemplate
