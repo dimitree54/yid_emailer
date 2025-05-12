@@ -112,4 +112,5 @@ dmypy.json
 .pyre/
 
 # pytype static analyzer
-.pytype/ 
+.pytype/
+/.idea/**
